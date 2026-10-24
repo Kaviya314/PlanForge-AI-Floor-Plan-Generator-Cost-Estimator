@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-app: #06142E;
+    --text-navy: #10294F;
+    --text-slate: #64748B;
+    --accent-blue: #3168F5;
+    --accent-teal: #0D9488;
+    --border-subtle: #E2E8F0;
+  }
+
+  body {
+    background-color: #06142E;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(49, 104, 245, 0.20), transparent),
+      radial-gradient(circle at 12% 25%, rgba(49, 104, 245, 0.14) 0%, transparent 45%),
+      radial-gradient(circle at 88% 60%, rgba(13, 148, 136, 0.10) 0%, transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(49, 104, 245, 0.12) 0%, transparent 45%),
+      linear-gradient(180deg, #06142E 0%, #0B1F46 45%, #102D5C 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #10294F;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+}
+
+.planforge-page-bg {
+  background-color: #06142E;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(49, 104, 245, 0.20), transparent),
+    radial-gradient(circle at 12% 25%, rgba(49, 104, 245, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 88% 60%, rgba(13, 148, 136, 0.10) 0%, transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(49, 104, 245, 0.12) 0%, transparent 45%),
+    linear-gradient(180deg, #06142E 0%, #0B1F46 45%, #102D5C 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Custom architectural scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4D4D8;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A1A1AA;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

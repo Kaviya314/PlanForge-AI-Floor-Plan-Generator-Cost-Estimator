@@ -1,0 +1,138 @@
+{
+  "projectName": "PlanForge",
+  "description": "PlanForge — Describe. Design. Estimate. A hackathon-ready open-source MVP for creating preliminary house layouts from natural-language requirements, validating room geometry, editing a 2D floor plan, and calculating transparent area-based construction estimates. Demo Mode must always work without credentials. Gemma 4 AI Mode is conditional on official verification of a supported model identifier/API and server-side configuration. The app must not present outputs as professional, safe, or construction-ready designs, nor estimates as quotations.",
+  "services": [
+    {
+      "serviceId": "frontend",
+      "name": "PlanForge web application",
+      "type": "frontend",
+      "description": "Responsive React single-page application using Vite, TypeScript, Tailwind CSS, Lucide React, and React Konva/Konva; includes project form, floor-plan editor, cost dashboard, saved projects, and about/open-source information."
+    },
+    {
+      "serviceId": "backend",
+      "name": "PlanForge API",
+      "type": "backend",
+      "description": "Python FastAPI service with Pydantic models, deterministic layout generation and geometry validation, area-based cost estimation, health/config endpoints, and an optional server-side Gemma integration using HTTPX."
+    }
+  ],
+  "questions": [
+    {
+      "header": "Frontend language",
+      "question": "Which language should the frontend use?",
+      "multiSelect": false,
+      "recommendedChoice": "TypeScript",
+      "options": [
+        { "label": "TypeScript", "description": "Typed React application, as requested." },
+        { "label": "JavaScript", "description": "JavaScript React application." }
+      ],
+      "allowFreeformInput": false,
+      "serviceId": "frontend",
+      "status": "inferred",
+      "answer": "TypeScript",
+      "rationale": "The attached requirements explicitly specify React, Vite, and TypeScript."
+    },
+    {
+      "header": "Frontend framework",
+      "question": "Which frontend framework and UI approach should be used?",
+      "multiSelect": false,
+      "recommendedChoice": "React + Vite + Tailwind CSS",
+      "options": [
+        { "label": "React + Vite + Tailwind CSS", "description": "Requested stack with a responsive custom dashboard UI." },
+        { "label": "Other", "description": "Choose a different framework or styling system." }
+      ],
+      "allowFreeformInput": true,
+      "serviceId": "frontend",
+      "status": "inferred",
+      "answer": "React + Vite + Tailwind CSS",
+      "rationale": "The attached requirements explicitly request this stack, plus Lucide React and React Konva/Konva."
+    },
+    {
+      "header": "Frontend features",
+      "question": "What should the frontend include?",
+      "multiSelect": false,
+      "recommendedChoice": "PlanForge dashboard, requirements form, editable and validated 2D floor-plan workspace, deterministic cost dashboard, saved projects, About/open-source page, and Demo Mode always available; Gemma 4 AI Mode only when officially verified and configured.",
+      "serviceId": "frontend",
+      "status": "inferred",
+      "answer": "PlanForge dashboard, requirements form, editable and validated 2D floor-plan workspace, deterministic cost dashboard, saved projects, About/open-source page, and Demo Mode always available; Gemma 4 AI Mode only when officially verified and configured.",
+      "rationale": "Features and acceptance priorities are detailed in the attached request."
+    },
+    {
+      "header": "Backend language",
+      "question": "Which language should the backend use?",
+      "multiSelect": false,
+      "recommendedChoice": "Python",
+      "options": [
+        { "label": "Python", "description": "Requested backend language." },
+        { "label": "Node.js / TypeScript", "description": "Alternative API implementation." }
+      ],
+      "allowFreeformInput": false,
+      "serviceId": "backend",
+      "status": "inferred",
+      "answer": "Python",
+      "rationale": "The attached requirements explicitly specify Python and FastAPI."
+    },
+    {
+      "header": "Backend framework",
+      "question": "Which backend framework should be used?",
+      "multiSelect": false,
+      "recommendedChoice": "FastAPI",
+      "options": [
+        { "label": "FastAPI", "description": "Requested Python API framework with Pydantic validation." },
+        { "label": "Other", "description": "Choose another Python framework." }
+      ],
+      "allowFreeformInput": true,
+      "serviceId": "backend",
+      "status": "inferred",
+      "answer": "FastAPI",
+      "rationale": "The attached requirements explicitly specify FastAPI, Pydantic, and HTTPX for optional model requests."
+    },
+    {
+      "header": "Backend features",
+      "question": "What should the backend include?",
+      "multiSelect": false,
+      "recommendedChoice": "Health/config, plan generation, geometry validation, deterministic cost estimation, and AI explanation endpoints; Demo Mode is independent of AI availability. Keep keys server-side, restrict CORS to local development origins, and report AI configured status without exposing credentials.",
+      "serviceId": "backend",
+      "status": "inferred",
+      "answer": "Health/config, plan generation, geometry validation, deterministic cost estimation, and AI explanation endpoints; Demo Mode is independent of AI availability. Keep keys server-side, restrict CORS to local development origins, and report AI configured status without exposing credentials.",
+      "rationale": "The API contract and reliability/security requirements are specified in the attached request."
+    },
+    {
+      "header": "Data stores",
+      "question": "Which persistent data stores are required?",
+      "multiSelect": true,
+      "recommendedChoice": ["No datastore required"],
+      "options": [
+        { "label": "No datastore required", "description": "Use browser local storage for the current project and saved projects; no managed database is needed.", "exclusive": true },
+        { "label": "Azure Database for PostgreSQL", "description": "Managed relational database." },
+        { "label": "Blob Storage", "description": "Object/file storage." }
+      ],
+      "allowFreeformInput": false,
+      "status": "inferred",
+      "answer": ["No datastore required"],
+      "rationale": "The request specifies local browser storage and no cloud persistence or uploaded media."
+    },
+    {
+      "header": "Authentication",
+      "question": "Do users need to sign in for application features?",
+      "multiSelect": false,
+      "recommendedChoice": "No",
+      "options": [
+        { "label": "No", "description": "Anonymous local prototype; projects remain in the user's browser." },
+        { "label": "Yes", "description": "Users authenticate to access application features." }
+      ],
+      "allowFreeformInput": false,
+      "status": "inferred",
+      "answer": "No",
+      "rationale": "No accounts or shared cloud data are requested; the prototype uses browser-local persistence."
+    }
+  ],
+  "constraints": [
+    "No paid service is required to run Demo Mode.",
+    "Gemma 4 model ID, endpoint, and request format must be verified from official documentation before integration; never fabricate them.",
+    "AI credentials must remain server-side and absent from source, frontend bundles, screenshots, and documentation.",
+    "Layout validation is geometric only and cannot establish architectural or structural safety.",
+    "Cost calculations are preliminary area-based sample estimates with explicit assumptions, rates, sources/status, exclusions, and uncertainty; no duplicate charges.",
+    "Prepare README.md, MIT LICENSE if appropriate, .gitignore, .env.example, tests, and DEMO_SCRIPT.md; do not publish or push externally without confirmation.",
+    "Do not claim untested behavior. Prioritize a working MVP over advanced features."
+  ]
+}

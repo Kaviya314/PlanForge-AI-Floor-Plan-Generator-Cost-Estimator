@@ -1,0 +1,8 @@
+{
+  "name": "PlanForge — AI Floor Plan Generator & Cost Estimator",
+  "description": "Describe. Design. Estimate. Turn your housing ideas into preliminary floor plans and transparent cost estimates.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
